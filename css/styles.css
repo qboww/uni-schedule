@@ -22,19 +22,35 @@ td {
 th {
     font-size: 13px;
     font-weight: 500;
+    color: rgb(107, 107, 107);
     background-color: rgb(27, 27, 27);
 }
 
 .td-time {
-    width: 150px;
+    width: 1px;
+    white-space: nowrap;
 }
 
 .highlight {
-    color: rgb(189, 255, 189)
+    color: rgb(184, 241, 184);
 }
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.td-link,
+a {
+    color: rgb(107, 107, 107);
+    text-align: center;
+    width: 25px;
+    white-space: nowrap;
+}
+
+.td-type {
+    text-align: center;
+    width: 25px;
+    white-space: nowrap;
 }
