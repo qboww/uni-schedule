@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <base href="." />
+</head>
+
+<body>
+  <div>
+    <header></header>
+    <div>
+      <title>Schedule</title>
+      <div class="container">
+        <div>
+          <div>
+            <!-- Понеділок -->
+            <table>
+              <tbody>
+                <tr>
+                  <th colspan="2">Понеділок</th>
+                </tr>
+                <tr>
+                  <td class="td-time">08:00 - 09:35</td>
+                  <td>Git-технологія командної розробки проєктів, Кузнецова Юлія Анатоліївна</td>
+                </tr>
+                <tr>
+                  <td class="td-time">09:50 - 11:25</td>
+                  <td>Основи Web UI розробки, лекція, Таран Сергій Юрійович</td>
+                </tr>
+                <tr>
+                  <td class="td-time">11:55 - 13:30</td>
+                  <td>Операційні системи, лекція, Захаренко Володимир Олександрович</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Вівторок -->
+            <table>
+              <tbody>
+                <tr>
+                  <th colspan="2">Вівторок</th>
+                </tr>
+                <tr>
+                  <td rowspan="2" class="td-time">08:00 - 09:35</td>
+                  <td colspan="" class="even-week">Операційні системи, лекція, Захаренко Володимир Олександрович</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="odd-week">Пропуск</td>
+                </tr>
+                <tr>
+                  <td class="td-time">09:50 - 11:25</td>
+                  <td>312ім, Алгоритми систем підтримки прийняття рішень, лекція, Шевченко Ілона Володимирівна
+                  </td>
+                </tr>
+                <tr>
+                  <td rowspan="2" class="td-time">13:45 - 15:20</td>
+                  <td colspan="" class="even-week">Аналіз вимог до ПЗ, практикум, Дем'яненко Олена Сергіївна</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="odd-week">Пропуск</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Середа -->
+            <table>
+              <tbody>
+                <tr>
+                  <th colspan="2">Середа</th>
+                </tr>
+                <tr>
+                  <td class="td-time">08:00 - 09:35</td>
+                  <td>Основи Web UI розробки, практика, Таран Сергій Юрійович</td>
+                </tr>
+                <tr>
+                  <td class="td-time">09:50 - 11:25</td>
+                  <td>Операційні системи, практикум, Лиманський Андрій Віталійович</td>
+                </tr>
+                <tr>
+                  <td class="td-time">11:55 - 13:30</td>
+                  <td>Системи штучного інтелекту, лекція, Волобуєва Ліна Олексіївна</td>
+                </tr>
+                <tr>
+                  <td class="td-time">13:45 - 15:20</td>
+                  <td>Алгоритми систем підтримки прийняття, практикум, старший викладач Лучшева
+                    Оксана Вадимівна</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Четвер -->
+            <table>
+              <tbody>
+                <tr>
+                  <th colspan="2">Четвер</th>
+                </tr>
+                <tr>
+                  <td rowspan="2" class="td-time">08:00 - 09:35</td>
+                  <td colspan="" class="even-week">Системи штучного інтелекту, практикум, Дем'яненко Владислав
+                    Анатолійович</td>
+                </tr>
+                <tr>
+                  <td class="odd-week">Web-програмування мовою PHP (КП), практикум, Туркіна Вікторія Валентинівна</td>
+                </tr>
+                <td class="td-time">11:55 - 13:30</td>
+                <td>Аналіз вимог до ПЗ, лекція, Зеленков Андрій Вікторович</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- П'ятниця -->
+            <table>
+              <tbody>
+                <tr>
+                  <th colspan="2">П'ятниця</th>
+                </tr>
+                <tr>
+                  <td class="td-time">11:55 - 13:30</td>
+                  <td>Git-технологія командної розробки проєктів, практика, Кузнецова Юлія Анатоліївна</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Get the current week number
+    function getWeekNumber() {
+      const today = new Date();
+      const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
+      const pastDaysOfYear = (today - firstDayOfYear) / 86400000;
+      return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+    }
+
+    // Highlight odd and even week classes
+    function highlightWeekClasses() {
+      const weekNumber = getWeekNumber();
+      const isEvenWeek = (weekNumber % 2 === 0);
+      const evenWeekElements = document.querySelectorAll('.even-week');
+      const oddWeekElements = document.querySelectorAll('.odd-week');
+
+      if (isEvenWeek) {
+        oddWeekElements.forEach((element) => {
+          element.classList.remove('highlight');
+        });
+        evenWeekElements.forEach((element) => {
+          element.classList.add('highlight');
+        });
+      } else {
+        evenWeekElements.forEach((element) => {
+          element.classList.remove('highlight');
+        });
+        oddWeekElements.forEach((element) => {
+          element.classList.add('highlight');
+        });
+      }
+    }
+
+    // Call the function when the page loads
+    window.onload = highlightWeekClasses;
+  </script>
+</body>
+
+</html>
